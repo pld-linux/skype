@@ -1,12 +1,12 @@
 Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
-Version:	0.92.0.2
+Version:	0.92.0.12
 Release:	1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	http://download.skype.com/linux/%{name}_ver-%(echo %{version} | tr . _).tar.bz2
-# Source0-md5:	a2ed59b007f92e2865e4f65be4a13eb5
+Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
+# Source0-md5:	e3481fd888999e71409cba34b29bde88
 URL:		http://www.skype.com/
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,7 +26,7 @@ wykorzystuje odno¶niki i grafikê w postaci opublikowanej i oznaczonej
 na http://www.skype.com/go/redistribution/ .
 
 %prep
-%setup -q -n %{name}_ver-%(echo %{version} | tr '.' '_')
+%setup -q 
 sed -i -e 's/Network;Application;/Qt;KDE;Network;InstantMessaging;/' \
 	%{name}.desktop
 	
@@ -65,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(iw) %{_datadir}/%{name}/lang/skype_iw.qm
 %lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
 %lang(ko) %{_datadir}/%{name}/lang/skype_ko.qm
-#%lang(nl) %{_datadir}/%{name}/lang/skype_nl.qm
+%lang(nl) %{_datadir}/%{name}/lang/skype_nl.qm
 %lang(no) %{_datadir}/%{name}/lang/skype_no.qm
 %lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
 %lang(pt_br) %{_datadir}/%{name}/lang/skype_pt_BR.qm
