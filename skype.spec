@@ -1,12 +1,12 @@
 Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
-Version:	0.92.0.12
+Version:	0.93.0.3
 Release:	1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
-# Source0-md5:	e3481fd888999e71409cba34b29bde88
+# Source0-md5:	aba3ab2908c5abe6f7e90918db03b1dd
 URL:		http://www.skype.com/
 BuildRequires:	sed >= 4.0
 ExclusiveArch:	%{ix86}
@@ -33,11 +33,11 @@ sed -i -e 's/Network;Application;/Qt;KDE;Network;InstantMessaging;/' \
 	
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/lang,%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps/,%{_desktopdir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/{lang,sound},%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps/,%{_desktopdir}}
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-install *.wav $RPM_BUILD_ROOT%{_datadir}/%{name}
-install *.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
+install sound/*.wav $RPM_BUILD_ROOT%{_datadir}/%{name}/sound
+install lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
 install icons/skype_32_32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 # The following are 16x16 and 48x48 icons
 install icons/skype_16_32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/%{name}.png
@@ -52,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
-%{_datadir}/%{name}/*.wav
+%{_datadir}/%{name}/sound/*.wav
 %dir %{_datadir}/%{name}/lang
 %lang(da) %{_datadir}/%{name}/lang/skype_da.qm
 %lang(de) %{_datadir}/%{name}/lang/skype_de.qm
