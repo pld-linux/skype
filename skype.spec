@@ -1,12 +1,12 @@
 Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
-Version:	1.0.0.7
+Version:	1.0.0.20
 Release:	1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
-# Source0-md5:	2bbec9de0b3d449f2d536a6eb7831886
+# Source0-md5:	0a9c3f819e06c000bef3e6ba70728786
 URL:		http://www.skype.com/
 BuildRequires:	sed >= 4.0
 Requires:	qt >= 3.2
@@ -31,7 +31,7 @@ na http://www.skype.com/go/redistribution/ .
 %setup -q 
 %{__sed} -i 's/Network;Application;/Qt;Network;InstantMessaging;/' \
 	%{name}.desktop
-	
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/{lang,sound},%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps/,%{_desktopdir}}
