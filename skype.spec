@@ -1,11 +1,8 @@
-# TODO:
-#	- seperate translations
-#
 Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
 Version:	0.91.0.12
-Release:	0.3
+Release:	0.4
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}_ver-%(echo %{version} | tr . _).tar.bz2
@@ -49,7 +46,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/*.wav
 %lang(da) %{_datadir}/%{name}/lang/skype_da.qm
 %lang(de) %{_datadir}/%{name}/lang/skype_de.qm
 %lang(el) %{_datadir}/%{name}/lang/skype_el.qm
