@@ -1,12 +1,12 @@
 Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
-Version:	0.93.0.3
-Release:	1
+Version:	0.94.0.1
+Release:	0.1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
-# Source0-md5:	aba3ab2908c5abe6f7e90918db03b1dd
+# Source0-md5:	376f1b98d9f87922c5dbcbce2ae4e9c1
 URL:		http://www.skype.com/
 BuildRequires:	sed >= 4.0
 ExclusiveArch:	%{ix86}
