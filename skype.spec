@@ -37,7 +37,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/la
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
 install *.wav $RPM_BUILD_ROOT%{_datadir}/%{name}
-mv -f *.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang/
+install *.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
 install icons/skype_32_32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 # The following are 16x16 and 48x48 icons
 install icons/skype_16_32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/%{name}.png
@@ -53,12 +53,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*.wav
+%dir %{_datadir}/%{name}/lang
 %lang(da) %{_datadir}/%{name}/lang/skype_da.qm
 %lang(de) %{_datadir}/%{name}/lang/skype_de.qm
 %lang(el) %{_datadir}/%{name}/lang/skype_el.qm
 %lang(en) %{_datadir}/%{name}/lang/skype_en.qm
 %lang(es) %{_datadir}/%{name}/lang/skype_es.qm
-%lang(es_ar) %{_datadir}/%{name}/lang/skype_es_AR.qm
+%lang(es_AR) %{_datadir}/%{name}/lang/skype_es_AR.qm
 %lang(et) %{_datadir}/%{name}/lang/skype_et.qm
 %lang(fi) %{_datadir}/%{name}/lang/skype_fi.qm
 %lang(fr) %{_datadir}/%{name}/lang/skype_fr.qm
@@ -67,13 +68,13 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
 %lang(ko) %{_datadir}/%{name}/lang/skype_ko.qm
 %lang(nl) %{_datadir}/%{name}/lang/skype_nl.qm
-%lang(no) %{_datadir}/%{name}/lang/skype_no.qm
+%lang(nb) %{_datadir}/%{name}/lang/skype_no.qm
 %lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
-%lang(pt_br) %{_datadir}/%{name}/lang/skype_pt_BR.qm
+%lang(pt_BR) %{_datadir}/%{name}/lang/skype_pt_BR.qm
 %lang(ro) %{_datadir}/%{name}/lang/skype_ro.qm
 %lang(ru) %{_datadir}/%{name}/lang/skype_ru.qm
 %lang(sv)  %{_datadir}/%{name}/lang/skype_sv.qm
-%lang(zh_cn) %{_datadir}/%{name}/lang/skype_zh_CN.qm
-%lang(zh_tw) %{_datadir}/%{name}/lang/skype_zh_TW.qm
+%lang(zh_CN) %{_datadir}/%{name}/lang/skype_zh_CN.qm
+%lang(zh_TW) %{_datadir}/%{name}/lang/skype_zh_TW.qm
 %{_iconsdir}/hicolor/*x*/apps/%{name}.png
 %{_desktopdir}/*.desktop
