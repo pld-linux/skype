@@ -53,6 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/sound
 %{_datadir}/%{name}/sound/*.wav
 %dir %{_datadir}/%{name}/lang
 %lang(da) %{_datadir}/%{name}/lang/skype_da.qm
