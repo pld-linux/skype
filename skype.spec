@@ -2,7 +2,7 @@ Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
 Version:	0.91.0.12
-Release:	0.4
+Release:	0.5
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}_ver-%(echo %{version} | tr . _).tar.bz2
@@ -27,7 +27,9 @@ na http://www.skype.com/go/redistribution/ .
 
 %prep
 %setup -q -n %{name}_ver-%(echo %{version} | tr '.' '_')
-
+sed -i -e 's/Network;Application;/Qt;KDE;Network;InstantMessaging;/' \
+	%{name}.desktop
+	
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/lang,%{_pixmapsdir},%{_desktopdir}}
@@ -37,7 +39,6 @@ install *.wav $RPM_BUILD_ROOT%{_datadir}/%{name}
 mv -f *.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang/
 install icons/skype_32_32.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 install *.desktop $RPM_BUILD_ROOT%{_desktopdir}
-echo "Categories=Qt;KDE;Network;InstantMessaging;">> $RPM_BUILD_ROOT%{_desktopdir}/skype.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
