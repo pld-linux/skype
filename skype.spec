@@ -5,7 +5,7 @@ Version:	0.90.0.6
 Release:	0.1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	http://download.skype.com/linux/%{name}_ver-%(echo %{version} | tr '.' '_').tar.bz2
+Source0:	http://download.skype.com/linux/%{name}_ver-%(echo %{version} | tr . _).tar.bz2
 # Source0-md5:	f14a591422a2b406aa5c5b4532aaf348
 URL:		http://www.skype.com/
 ExclusiveArch:	%{ix86}
