@@ -8,6 +8,7 @@ Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
 # Source0-md5:	e3481fd888999e71409cba34b29bde88
 URL:		http://www.skype.com/
+BuildRequires:	sed >= 4.0
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
