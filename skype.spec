@@ -21,7 +21,7 @@ www.skype.com/go/redistribution
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_pixmapsdir},%{_applnkdir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_pixmapsdir},%{_desktopdir}}
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
 install *.wav $RPM_BUILD_ROOT%{_datadir}/%{name}
