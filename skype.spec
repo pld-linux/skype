@@ -18,14 +18,14 @@ p2p VoIP application.
 
 License requirement: The Software originates from Skype and use the
 links and graphics as published and indicated on
-http://www.skype.com/go/redistribution/ .
+<http://www.skype.com/go/redistribution/>.
 
 %description -l pl
 Aplikacja VoIP p2p.
 
 Wymaganie licencyjne: to oprogramowanie pochodzi od Skype i
 wykorzystuje odno¶niki i grafikê w postaci opublikowanej i oznaczonej
-na http://www.skype.com/go/redistribution/ .
+na <http://www.skype.com/go/redistribution/>.
 
 %prep
 %setup -q 
