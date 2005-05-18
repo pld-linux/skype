@@ -12,4 +12,5 @@
 +Terminal=false
  Type=Application
  Encoding=UTF-8
- Categories=Qt;Network;InstantMessaging;
+-Categories=Network;Application;
++Categories=Qt;Network;InstantMessaging;
