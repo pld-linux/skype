@@ -2,11 +2,12 @@ Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
 Version:	1.1.0.3
-Release:	1
+Release:	2
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
 # Source0-md5:	8b0a7778c789528c2e7a4057d113d013
+Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 BuildRequires:	sed >= 4.0
 Requires:	qt >= 3.2
@@ -29,8 +30,7 @@ na <http://www.skype.com/go/redistribution/>.
 
 %prep
 %setup -q 
-%{__sed} -i 's/Network;Application;/Qt;Network;InstantMessaging;/' \
-	%{name}.desktop
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -44,6 +44,8 @@ install icons/skype_32_32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/%{n
 install icons/skype_16_32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 install icons/skype_48_32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/%{name}.png
 install *.desktop $RPM_BUILD_ROOT%{_desktopdir}
+
+mv -f $RPM_BUILD_ROOT%{_datadir}/%{name}/lang/skype_{no,nb}.qm
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -69,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
 %lang(ko) %{_datadir}/%{name}/lang/skype_ko.qm
 %lang(nl) %{_datadir}/%{name}/lang/skype_nl.qm
-%lang(nb) %{_datadir}/%{name}/lang/skype_no.qm
+%lang(nb) %{_datadir}/%{name}/lang/skype_nb.qm
 %lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
 %lang(pt_BR) %{_datadir}/%{name}/lang/skype_pt_BR.qm
 %lang(ro) %{_datadir}/%{name}/lang/skype_ro.qm
