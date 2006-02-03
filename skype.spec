@@ -2,7 +2,7 @@ Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
 Version:	1.2.0.18
-Release:	1
+Release:	2
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
@@ -55,7 +55,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
-%{_datadir}/%{name}/sound
+# really stupid workaround for "device /dev/dsp is busy" :>
+%{_datadir}/%{name}/sound/busy4.wav
+%{_datadir}/%{name}/sound/call_in.wav
+%{_datadir}/%{name}/sound/call_out.wav
+%{_datadir}/%{name}/sound/im.wav
+
 %dir %{_datadir}/%{name}/lang
 %lang(da) %{_datadir}/%{name}/lang/skype_da.qm
 %lang(de) %{_datadir}/%{name}/lang/skype_de.qm
