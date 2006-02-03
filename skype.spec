@@ -56,10 +56,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 # really stupid workaround for "device /dev/dsp is busy" :>
-%{_datadir}/%{name}/sound/busy4.wav
-%{_datadir}/%{name}/sound/call_in.wav
-%{_datadir}/%{name}/sound/call_out.wav
-%{_datadir}/%{name}/sound/im.wav
+%exclude %{_datadir}/%{name}/sound/hangup.wav
+%{_datadir}/%{name}/sound
 
 %dir %{_datadir}/%{name}/lang
 %lang(da) %{_datadir}/%{name}/lang/skype_da.qm
