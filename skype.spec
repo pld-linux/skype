@@ -2,7 +2,7 @@ Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
 Version:	1.2.0.18
-Release:	2
+Release:	3
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
@@ -10,7 +10,7 @@ Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 Requires:	qt >= 3.2
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{ix86} amd64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
