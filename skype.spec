@@ -10,7 +10,7 @@ Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 Requires:	qt >= 3.2
-ExclusiveArch:	%{ix86} amd64
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
