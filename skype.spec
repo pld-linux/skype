@@ -1,12 +1,12 @@
 Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
-Version:	1.3.0.37
+Version:	1.3.0.50
 Release:	1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-beta-%{version}.tar.bz2
-# Source0-md5:	894659fafc9ed00b235ec84d3c5d39e4
+# Source0-md5:	0adf318536892639f90b78c3f2ea6228
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 Requires:	qt >= 6:3.2
@@ -58,28 +58,39 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/sound
 
 %dir %{_datadir}/%{name}/lang
+%lang(ar) %{_datadir}/%{name}/lang/skype_ar.qm
+%lang(bg) %{_datadir}/%{name}/lang/skype_bg.qm
+%lang(cs) %{_datadir}/%{name}/lang/skype_cs.qm
+%lang(cz) %{_datadir}/%{name}/lang/skype_cz.qm
+%lang(he) %{_datadir}/%{name}/lang/skype_he.qm
+%lang(hu) %{_datadir}/%{name}/lang/skype_hu.qm
+%lang(pp) %{_datadir}/%{name}/lang/skype_pp.qm
+%lang(pt) %{_datadir}/%{name}/lang/skype_pt.qm
+%lang(th) %{_datadir}/%{name}/lang/skype_th.qm
+%lang(tr) %{_datadir}/%{name}/lang/skype_tr.qm
+%lang(x1) %{_datadir}/%{name}/lang/skype_x1.qm
 %lang(da) %{_datadir}/%{name}/lang/skype_da.qm
 %lang(de) %{_datadir}/%{name}/lang/skype_de.qm
 %lang(el) %{_datadir}/%{name}/lang/skype_el.qm
 %lang(en) %{_datadir}/%{name}/lang/skype_en.qm
 %lang(es) %{_datadir}/%{name}/lang/skype_es.qm
-%lang(es_AR) %{_datadir}/%{name}/lang/skype_es_AR.qm
+#%lang(es_AR) %{_datadir}/%{name}/lang/skype_es_AR.qm
 %lang(et) %{_datadir}/%{name}/lang/skype_et.qm
 %lang(fi) %{_datadir}/%{name}/lang/skype_fi.qm
 %lang(fr) %{_datadir}/%{name}/lang/skype_fr.qm
 %lang(it) %{_datadir}/%{name}/lang/skype_it.qm
-%lang(iw) %{_datadir}/%{name}/lang/skype_iw.qm
+#%lang(iw) %{_datadir}/%{name}/lang/skype_iw.qm
 %lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
 %lang(ko) %{_datadir}/%{name}/lang/skype_ko.qm
 %lang(nl) %{_datadir}/%{name}/lang/skype_nl.qm
 %lang(nb) %{_datadir}/%{name}/lang/skype_nb.qm
 %lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
-%lang(pt_BR) %{_datadir}/%{name}/lang/skype_pt_BR.qm
+#%lang(pt_BR) %{_datadir}/%{name}/lang/skype_pt_BR.qm
 %lang(ro) %{_datadir}/%{name}/lang/skype_ro.qm
 %lang(ru) %{_datadir}/%{name}/lang/skype_ru.qm
 %lang(sv)  %{_datadir}/%{name}/lang/skype_sv.qm
-%lang(zh_CN) %{_datadir}/%{name}/lang/skype_zh_CN.qm
-%lang(zh_TW) %{_datadir}/%{name}/lang/skype_zh_TW.qm
+#%lang(zh_CN) %{_datadir}/%{name}/lang/skype_zh_CN.qm
+#%lang(zh_TW) %{_datadir}/%{name}/lang/skype_zh_TW.qm
 %{_sysconfdir}/dbus-1/system.d/skype.conf
 %{_iconsdir}/hicolor/*x*/apps/%{name}.png
 %{_desktopdir}/*.desktop
