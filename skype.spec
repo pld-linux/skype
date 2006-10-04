@@ -28,7 +28,7 @@ wykorzystuje odno¶niki i grafikê w postaci opublikowanej i oznaczonej
 na <http://www.skype.com/go/redistribution/>.
 
 %prep
-%setup -q 
+%setup -q
 %patch0 -p1
 
 %install
@@ -62,13 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(bg) %{_datadir}/%{name}/lang/skype_bg.qm
 %lang(cs) %{_datadir}/%{name}/lang/skype_cs.qm
 %lang(cz) %{_datadir}/%{name}/lang/skype_cz.qm
-%lang(he) %{_datadir}/%{name}/lang/skype_he.qm
-%lang(hu) %{_datadir}/%{name}/lang/skype_hu.qm
-%lang(pp) %{_datadir}/%{name}/lang/skype_pp.qm
-%lang(pt) %{_datadir}/%{name}/lang/skype_pt.qm
-%lang(th) %{_datadir}/%{name}/lang/skype_th.qm
-%lang(tr) %{_datadir}/%{name}/lang/skype_tr.qm
-%lang(x1) %{_datadir}/%{name}/lang/skype_x1.qm
 %lang(da) %{_datadir}/%{name}/lang/skype_da.qm
 %lang(de) %{_datadir}/%{name}/lang/skype_de.qm
 %lang(el) %{_datadir}/%{name}/lang/skype_el.qm
@@ -78,6 +71,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(et) %{_datadir}/%{name}/lang/skype_et.qm
 %lang(fi) %{_datadir}/%{name}/lang/skype_fi.qm
 %lang(fr) %{_datadir}/%{name}/lang/skype_fr.qm
+%lang(he) %{_datadir}/%{name}/lang/skype_he.qm
+%lang(hu) %{_datadir}/%{name}/lang/skype_hu.qm
 %lang(it) %{_datadir}/%{name}/lang/skype_it.qm
 #%lang(iw) %{_datadir}/%{name}/lang/skype_iw.qm
 %lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
@@ -85,12 +80,17 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_datadir}/%{name}/lang/skype_nl.qm
 %lang(nb) %{_datadir}/%{name}/lang/skype_nb.qm
 %lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
+%lang(pp) %{_datadir}/%{name}/lang/skype_pp.qm
+%lang(pt) %{_datadir}/%{name}/lang/skype_pt.qm
 #%lang(pt_BR) %{_datadir}/%{name}/lang/skype_pt_BR.qm
 %lang(ro) %{_datadir}/%{name}/lang/skype_ro.qm
 %lang(ru) %{_datadir}/%{name}/lang/skype_ru.qm
 %lang(sv)  %{_datadir}/%{name}/lang/skype_sv.qm
+%lang(th) %{_datadir}/%{name}/lang/skype_th.qm
+%lang(tr) %{_datadir}/%{name}/lang/skype_tr.qm
 #%lang(zh_CN) %{_datadir}/%{name}/lang/skype_zh_CN.qm
 #%lang(zh_TW) %{_datadir}/%{name}/lang/skype_zh_TW.qm
+%lang(x1) %{_datadir}/%{name}/lang/skype_x1.qm
 %{_sysconfdir}/dbus-1/system.d/skype.conf
 %{_iconsdir}/hicolor/*x*/apps/%{name}.png
 %{_desktopdir}/*.desktop
