@@ -67,14 +67,12 @@ rm -rf $RPM_BUILD_ROOT
 %lang(el) %{_datadir}/%{name}/lang/skype_el.qm
 %lang(en) %{_datadir}/%{name}/lang/skype_en.qm
 %lang(es) %{_datadir}/%{name}/lang/skype_es.qm
-#%lang(es_AR) %{_datadir}/%{name}/lang/skype_es_AR.qm
 %lang(et) %{_datadir}/%{name}/lang/skype_et.qm
 %lang(fi) %{_datadir}/%{name}/lang/skype_fi.qm
 %lang(fr) %{_datadir}/%{name}/lang/skype_fr.qm
 %lang(he) %{_datadir}/%{name}/lang/skype_he.qm
 %lang(hu) %{_datadir}/%{name}/lang/skype_hu.qm
 %lang(it) %{_datadir}/%{name}/lang/skype_it.qm
-#%lang(iw) %{_datadir}/%{name}/lang/skype_iw.qm
 %lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
 %lang(ko) %{_datadir}/%{name}/lang/skype_ko.qm
 %lang(nl) %{_datadir}/%{name}/lang/skype_nl.qm
@@ -82,14 +80,11 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
 %lang(pp) %{_datadir}/%{name}/lang/skype_pp.qm
 %lang(pt) %{_datadir}/%{name}/lang/skype_pt.qm
-#%lang(pt_BR) %{_datadir}/%{name}/lang/skype_pt_BR.qm
 %lang(ro) %{_datadir}/%{name}/lang/skype_ro.qm
 %lang(ru) %{_datadir}/%{name}/lang/skype_ru.qm
 %lang(sv)  %{_datadir}/%{name}/lang/skype_sv.qm
 %lang(th) %{_datadir}/%{name}/lang/skype_th.qm
 %lang(tr) %{_datadir}/%{name}/lang/skype_tr.qm
-#%lang(zh_CN) %{_datadir}/%{name}/lang/skype_zh_CN.qm
-#%lang(zh_TW) %{_datadir}/%{name}/lang/skype_zh_TW.qm
 %lang(x1) %{_datadir}/%{name}/lang/skype_x1.qm
 %{_sysconfdir}/dbus-1/system.d/skype.conf
 %{_iconsdir}/hicolor/*x*/apps/%{name}.png
