@@ -1,11 +1,8 @@
-#
-# TODO: verify language files
-#
 Summary:	p2p VoIP application
 Summary(pl):	Aplikacja VoIP p2p
 Name:		skype
 Version:	1.3.0.53
-Release:	0.1
+Release:	1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}-generic.tar.bz2
@@ -81,14 +78,16 @@ rm -rf $RPM_BUILD_ROOT
 %lang(nl) %{_datadir}/%{name}/lang/skype_nl.qm
 %lang(nb) %{_datadir}/%{name}/lang/skype_nb.qm
 %lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
-%lang(pp) %{_datadir}/%{name}/lang/skype_pp.qm
+# probably pt_BR
+%lang(pt_BR) %{_datadir}/%{name}/lang/skype_pp.qm
 %lang(pt) %{_datadir}/%{name}/lang/skype_pt.qm
 %lang(ro) %{_datadir}/%{name}/lang/skype_ro.qm
 %lang(ru) %{_datadir}/%{name}/lang/skype_ru.qm
 %lang(sv)  %{_datadir}/%{name}/lang/skype_sv.qm
 %lang(th) %{_datadir}/%{name}/lang/skype_th.qm
 %lang(tr) %{_datadir}/%{name}/lang/skype_tr.qm
-%lang(x1) %{_datadir}/%{name}/lang/skype_x1.qm
+# probably zh_TW
+%lang(zh_TW) %{_datadir}/%{name}/lang/skype_x1.qm
 %{_sysconfdir}/dbus-1/system.d/skype.conf
 %{_iconsdir}/hicolor/*x*/apps/%{name}.png
 %{_desktopdir}/*.desktop
