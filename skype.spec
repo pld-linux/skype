@@ -1,5 +1,5 @@
 Summary:	p2p VoIP application
-Summary(pl.UTF-8):   Aplikacja VoIP p2p
+Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
 Version:	1.3.0.53
 Release:	1
