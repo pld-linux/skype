@@ -1,5 +1,5 @@
 Summary:	p2p VoIP application
-Summary(pl):	Aplikacja VoIP p2p
+Summary(pl.UTF-8):   Aplikacja VoIP p2p
 Name:		skype
 Version:	1.3.0.53
 Release:	1
@@ -20,11 +20,11 @@ License requirement: The Software originates from Skype and use the
 links and graphics as published and indicated on
 <http://www.skype.com/go/redistribution/>.
 
-%description -l pl
+%description -l pl.UTF-8
 Aplikacja VoIP p2p.
 
 Wymaganie licencyjne: to oprogramowanie pochodzi od Skype i
-wykorzystuje odno¶niki i grafikê w postaci opublikowanej i oznaczonej
+wykorzystuje odnoÅ›niki i grafikÄ™ w postaci opublikowanej i oznaczonej
 na <http://www.skype.com/go/redistribution/>.
 
 %prep
