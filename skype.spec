@@ -4,12 +4,12 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	1.4.0.58
+Version:	1.4.0.64
 Release:	0.%{_rc}.1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{_rc}-%{version}-generic.tar.bz2
-# Source0-md5:	da348697a934ba389c782cf2d089e431
+# Source0-md5:	ec99cee70b564ab4835bbcb683b2805a
 URL:		http://www.skype.com/
 Requires:	QtCore >= 4.2.3
 Requires:	QtGui >= 4.2.3
@@ -33,7 +33,7 @@ wykorzystuje odnośniki i grafikę w postaci opublikowanej i oznaczonej
 na <http://www.skype.com/go/redistribution/>.
 
 %prep
-%setup -q -n %{name}-%{version}_%{_rc}
+%setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
