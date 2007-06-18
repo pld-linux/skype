@@ -1,15 +1,13 @@
 
-%define	_rc	alpha
-
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	1.4.0.64
-Release:	0.%{_rc}.1
+Version:	1.4.0.74
+Release:	1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	http://download.skype.com/linux/%{name}-%{_rc}-%{version}-generic.tar.bz2
-# Source0-md5:	ec99cee70b564ab4835bbcb683b2805a
+Source0:	http://download.skype.com/linux/%{name}-%{version}.bz2
+# Source0-md5:	4b4837397c53b11b779a1a05dabeacfa
 URL:		http://www.skype.com/
 Requires:	QtCore >= 4.2.3
 Requires:	QtGui >= 4.2.3
