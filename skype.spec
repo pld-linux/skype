@@ -3,6 +3,8 @@ Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
 Version:	1.4.0.74
 Release:	0.1
+# http://www.skype.com/company/legal/promote/distributionterms.html
+# distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
