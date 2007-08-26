@@ -12,6 +12,7 @@ Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
 #Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 Requires:	QtCore >= 4.2.3
+Requires:	QtDBus >= 4.2.3
 Requires:	QtGui >= 4.2.3
 Requires:	QtNetwork >= 4.2.3
 Requires:	libsigc++ >= 2.0
