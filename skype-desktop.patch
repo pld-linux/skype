@@ -3,7 +3,7 @@
 @@ -1,9 +1,10 @@
  [Desktop Entry]
  Name=Skype
--Comment=Skype
+-Comment=Skype Internet Telephony
 +Comment=p2p VoIP application
 +Comment[pl]=Aplikacja VoIP p2p
  Exec=skype
