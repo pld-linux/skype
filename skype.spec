@@ -15,6 +15,7 @@ Requires:	QtCore >= 4.2.1
 Requires:	QtDBus >= 4.2.1
 Requires:	QtGui >= 4.2.1
 Requires:	QtNetwork >= 4.2.1
+Requires:	alsa-lib >= 1.0.12
 Requires:	libsigc++ >= 2.0
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -97,6 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 # probably zh_TW
 %lang(zh_TW) %{_datadir}/%{name}/lang/skype_zh_t.qm
 
-%{_sysconfdir}/dbus-1/system.d/skype.conf
+/etc/dbus-1/system.d/skype.conf
 %{_iconsdir}/hicolor/*x*/apps/%{name}.png
 %{_desktopdir}/*.desktop
