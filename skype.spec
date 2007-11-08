@@ -1,14 +1,14 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	1.4.0.118
+Version:	2.0.0.13
 Release:	1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
-# Source0-md5:	519d3b26874c0a8e4b8bf4b16ea8a501
+# Source0-md5:	ec1c8b5d5d2879909462e90af07a7010
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 Requires:	QtCore >= 4.2.3
@@ -64,13 +64,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_datadir}/%{name}/lang
 # %lang(ar) %{_datadir}/%{name}/lang/skype_ar.qm
-# %lang(bg) %{_datadir}/%{name}/lang/skype_bg.qm
+%lang(bg) %{_datadir}/%{name}/lang/skype_bg.qm
 # %lang(cs) %{_datadir}/%{name}/lang/skype_cs.qm
 # %lang(cz) %{_datadir}/%{name}/lang/skype_cz.qm
 # %lang(da) %{_datadir}/%{name}/lang/skype_da.qm
 %lang(de) %{_datadir}/%{name}/lang/skype_de.qm
 # %lang(el) %{_datadir}/%{name}/lang/skype_el.qm
-# %lang(en) %{_datadir}/%{name}/lang/skype_en.qm
+%lang(en) %{_datadir}/%{name}/lang/skype_en.qm
 # %lang(es) %{_datadir}/%{name}/lang/skype_es.qm
 %lang(et) %{_datadir}/%{name}/lang/skype_et.qm
 # %lang(fi) %{_datadir}/%{name}/lang/skype_fi.qm
