@@ -11,10 +11,10 @@ Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
 # Source0-md5:	ec1c8b5d5d2879909462e90af07a7010
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
-Requires:	QtCore >= 4.2.3
-Requires:	QtDBus >= 4.2.3
-Requires:	QtGui >= 4.2.3
-Requires:	QtNetwork >= 4.2.3
+Requires:	QtCore >= 4.2.1
+Requires:	QtDBus >= 4.2.1
+Requires:	QtGui >= 4.2.1
+Requires:	QtNetwork >= 4.2.1
 Requires:	libsigc++ >= 2.0
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
