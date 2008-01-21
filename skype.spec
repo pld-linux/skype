@@ -16,6 +16,7 @@ Requires:	QtDBus >= 4.2.1
 Requires:	QtGui >= 4.2.1
 Requires:	QtNetwork >= 4.2.1
 Requires:	alsa-lib >= 1.0.12
+Requires:	iconv
 Requires:	libsigc++ >= 2.0
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -43,14 +44,14 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/{lang,sounds,avatars},%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps/,%{_desktopdir},%{_sysconfdir}/dbus-1/system.d}
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-install sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/%{name}/sounds
-install lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
-install avatars/*.png $RPM_BUILD_ROOT%{_datadir}/%{name}/avatars
-install skype.conf $RPM_BUILD_ROOT%{_sysconfdir}/dbus-1/system.d
-install icons/SkypeBlue_16x16.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/%{name}.png
-install icons/SkypeBlue_32x32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/%{name}.png
-install icons/SkypeBlue_48x48.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/%{name}.png
-install *.desktop $RPM_BUILD_ROOT%{_desktopdir}
+cp -a sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/%{name}/sounds
+cp -a lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
+cp -a avatars/*.png $RPM_BUILD_ROOT%{_datadir}/%{name}/avatars
+cp -a skype.conf $RPM_BUILD_ROOT%{_sysconfdir}/dbus-1/system.d
+cp -a icons/SkypeBlue_16x16.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+cp -a icons/SkypeBlue_32x32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+cp -a icons/SkypeBlue_48x48.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+cp -a *.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
