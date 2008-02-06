@@ -1,14 +1,14 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	2.0.0.27
+Version:	2.0.0.43
 Release:	1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
-# Source0-md5:	09fad322644bf46840dfc93bb8040fca
+# Source0-md5:	ac75597f768afbb7c45285dbda270b36
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 Requires:	QtCore >= 4.2.1
@@ -73,26 +73,27 @@ rm -rf $RPM_BUILD_ROOT
 %lang(de) %{_datadir}/%{name}/lang/skype_de.qm
 # %lang(el) %{_datadir}/%{name}/lang/skype_el.qm
 %lang(en) %{_datadir}/%{name}/lang/skype_en.qm
-# %lang(es) %{_datadir}/%{name}/lang/skype_es.qm
+%lang(es) %{_datadir}/%{name}/lang/skype_es.qm
 %lang(et) %{_datadir}/%{name}/lang/skype_et.qm
 # %lang(fi) %{_datadir}/%{name}/lang/skype_fi.qm
 %lang(fr) %{_datadir}/%{name}/lang/skype_fr.qm
 # %lang(he) %{_datadir}/%{name}/lang/skype_he.qm
 # %lang(hu) %{_datadir}/%{name}/lang/skype_hu.qm
-# %lang(it) %{_datadir}/%{name}/lang/skype_it.qm
-# %lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
-# %lang(ko) %{_datadir}/%{name}/lang/skype_ko.qm
+%lang(it) %{_datadir}/%{name}/lang/skype_it.qm
+%lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
+%lang(ko) %{_datadir}/%{name}/lang/skype_ko.qm
 %lang(lv) %{_datadir}/%{name}/lang/skype_lv.qm
+%lang(lt) %{_datadir}/%{name}/lang/skype_lt.qm
 # %lang(nl) %{_datadir}/%{name}/lang/skype_nl.qm
 # %lang(nb) %{_datadir}/%{name}/lang/skype_nb.qm
 %lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
 # probably pt_BR
-# %lang(pt_BR) %{_datadir}/%{name}/lang/skype_pp.qm
+%lang(pt_BR) %{_datadir}/%{name}/lang/skype_pt_br.qm
 %lang(pt) %{_datadir}/%{name}/lang/skype_pt_pt.qm
 %lang(ro) %{_datadir}/%{name}/lang/skype_ro.qm
 %lang(ru) %{_datadir}/%{name}/lang/skype_ru.qm
 # %lang(sv)  %{_datadir}/%{name}/lang/skype_sv.qm
-# %lang(th) %{_datadir}/%{name}/lang/skype_th.qm
+%lang(th) %{_datadir}/%{name}/lang/skype_th.qm
 %lang(tr) %{_datadir}/%{name}/lang/skype_tr.qm
 # probably zh
 %lang(zh) %{_datadir}/%{name}/lang/skype_zh_s.qm
