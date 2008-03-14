@@ -1,14 +1,14 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	2.0.0.43
+Version:	2.0.0.63
 Release:	1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
-# Source0-md5:	ac75597f768afbb7c45285dbda270b36
+# Source0-md5:	63d62110e3e0da5b5d22a3cc7f3cde13
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 Requires:	QtCore >= 4.2.1
