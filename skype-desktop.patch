@@ -1,16 +1,18 @@
---- skype-1.1.0.3/skype.desktop~	2005-05-18 08:19:41.000000000 +0200
-+++ skype-1.1.0.3/skype.desktop	2005-05-18 08:19:41.000000000 +0200
-@@ -1,9 +1,10 @@
+--- skype-2.1.0.47/skype.desktop~	2009-09-02 12:05:51.000000000 +0200
++++ skype-2.1.0.47/skype.desktop	2009-09-02 12:05:51.000000000 +0200
+@@ -1,9 +1,11 @@
  [Desktop Entry]
  Name=Skype
 -Comment=Skype Internet Telephony
 +Comment=p2p VoIP application
 +Comment[pl]=Aplikacja VoIP p2p
  Exec=skype
- Icon=skype.png
+-Icon=skype.png
 -Terminal=0
++Icon=skype
 +Terminal=false
  Type=Application
  Encoding=UTF-8
 -Categories=Network;Application;
 +Categories=Qt;Network;InstantMessaging;
++# vi: encoding=utf-8
