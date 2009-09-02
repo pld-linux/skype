@@ -1,14 +1,17 @@
+#
+# TODO: - segmentation fault
+#
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	2.0.0.72
-Release:	3
+Version:	2.1.0.47
+Release:	0.1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
-# Source0-md5:	71fa47d788e73bcaf5b788be9236e97d
+# Source0-md5:	7396164fb926705300d72cd478458d36
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 # to force 32bit iconv
