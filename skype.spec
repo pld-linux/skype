@@ -5,7 +5,7 @@ Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
 Version:	2.1.0.47
-Release:	0.1
+Release:	0.2
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
@@ -26,6 +26,8 @@ Requires:	libsigc++ >= 2.0
 Conflicts:	skype-static
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		no_install_post_strip	1
 
 %description
 p2p VoIP application.
