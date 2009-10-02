@@ -27,6 +27,7 @@ Conflicts:	skype-static
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_enable_debug_packages	0
 %define		no_install_post_strip	1
 
 %description
@@ -49,13 +50,13 @@ na <http://www.skype.com/go/redistribution/>.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/{lang,sounds,avatars},%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps/,%{_desktopdir},%{_sysconfdir}/dbus-1/system.d}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/{lang,sounds,avatars},%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps,%{_desktopdir},/etc/dbus-1/system.d}
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
 cp -a sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/%{name}/sounds
 cp -a lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
 cp -a avatars/*.png $RPM_BUILD_ROOT%{_datadir}/%{name}/avatars
-cp -a skype.conf $RPM_BUILD_ROOT%{_sysconfdir}/dbus-1/system.d
+cp -a skype.conf $RPM_BUILD_ROOT/etc/dbus-1/system.d
 cp -a icons/SkypeBlue_16x16.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 cp -a icons/SkypeBlue_32x32.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 cp -a icons/SkypeBlue_48x48.png $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/%{name}.png
