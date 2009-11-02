@@ -8,7 +8,7 @@ Release:	1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}.tar.bz2
-# Source0-md5:	71fa47d788e73bcaf5b788be9236e97d
+# Source0-md5:	7396164fb926705300d72cd478458d36
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 # to force 32bit iconv
