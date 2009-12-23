@@ -68,7 +68,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc LICENSE
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/skype
+
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/sounds
 %{_datadir}/%{name}/avatars
