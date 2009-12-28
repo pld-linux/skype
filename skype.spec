@@ -25,6 +25,7 @@ ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_enable_debug_packages	0
+# https://developer.skype.com/jira/browse/SCL-569
 %define		no_install_post_strip	1
 
 # So that building package on AC system won't write package name dep that Th system can't understand (libstdc++4)
