@@ -90,8 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_datadir}/%{name}/lang/skype_it.qm
 %lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
 %lang(ko) %{_datadir}/%{name}/lang/skype_ko.qm
-%lang(lv) %{_datadir}/%{name}/lang/skype_lv.qm
 %lang(lt) %{_datadir}/%{name}/lang/skype_lt.qm
+%lang(lv) %{_datadir}/%{name}/lang/skype_lv.qm
 %lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
 %lang(pt_BR) %{_datadir}/%{name}/lang/skype_pt_br.qm
 %lang(pt) %{_datadir}/%{name}/lang/skype_pt_pt.qm
@@ -99,6 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ru) %{_datadir}/%{name}/lang/skype_ru.qm
 %lang(th) %{_datadir}/%{name}/lang/skype_th.qm
 %lang(tr) %{_datadir}/%{name}/lang/skype_tr.qm
+%lang(uk) %{_datadir}/%{name}/lang/skype_uk.qm
 %lang(zh) %{_datadir}/%{name}/lang/skype_zh_s.qm
 %lang(zh_TW) %{_datadir}/%{name}/lang/skype_zh_t.qm
 
