@@ -1,14 +1,14 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	2.1.0.47
-Release:	2
+Version:	2.1.0.81
+Release:	1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{name}-%{version}-fc10.i586.rpm
-# Source0-md5:	08b40dee4b507dfbdb949e441006cd60
+# Source0-md5:	fe9ba37b14d9a9ac2c8f65ac0721e5bd
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 BuildRequires:	rpm-utils
