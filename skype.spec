@@ -7,10 +7,8 @@ Release:	1
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	http://download.skype.com/linux/%{name}-%{version}-fc10.i586.rpm
-# Source0-md5:	fe9ba37b14d9a9ac2c8f65ac0721e5bd
-Source1:	http://download.skype.com/linux/%{name}-ubuntu-intrepid_%{version}-1_amd64.deb
-# Source1-md5:	1c4da1a157e95418be10e84900924f92
+Source0:	http://download.skype.com/linux/%{name}-ubuntu-intrepid_%{version}-1_amd64.deb
+# Source0-md5:	1c4da1a157e95418be10e84900924f92
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 BuildRequires:	rpm-utils
@@ -24,7 +22,7 @@ Requires:	alsa-lib >= 1.0.12
 Requires:	iconv
 Requires:	libsigc++ >= 2.0
 Conflicts:	skype-static
-ExclusiveArch:	%{ix86} %{x8664}
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_enable_debug_packages	0
@@ -50,16 +48,10 @@ na <http://www.skype.com/go/redistribution/>.
 
 %prep
 %setup -qcT
-%ifarch %{ix86}
-rpm2cpio %{SOURCE0} | cpio -dimu
-mv usr/share/doc/skype-%{version}/LICENSE .
-%endif
-%ifarch %{x8664}
-ar x %{SOURCE1}
+ar x %{SOURCE0}
 tar xzf data.tar.gz
 mv usr/share/doc/skype/copyright LICENSE
 mv usr/share/skype/avatars .
-%endif
 mv usr/bin/skype .
 mv usr/share/skype/sounds .
 mv usr/share/skype/lang .
@@ -78,7 +70,7 @@ cp -a lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
 cp -a skype.conf $RPM_BUILD_ROOT/etc/dbus-1/system.d
 cp -a skype.png $RPM_BUILD_ROOT%{_pixmapsdir}
 cp -a *.desktop $RPM_BUILD_ROOT%{_desktopdir}
-[ -d avatars ] && cp -a avatars $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -a avatars $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,13 +78,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc LICENSE
+/etc/dbus-1/system.d/skype.conf
 %attr(755,root,root) %{_bindir}/skype
 
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/sounds
-%ifarch %{x8664}
 %{_datadir}/%{name}/avatars
-%endif
 
 %dir %{_datadir}/%{name}/lang
 %lang(bg) %{_datadir}/%{name}/lang/skype_bg.qm
@@ -117,6 +108,5 @@ rm -rf $RPM_BUILD_ROOT
 %lang(zh) %{_datadir}/%{name}/lang/skype_zh_s.qm
 %lang(zh_TW) %{_datadir}/%{name}/lang/skype_zh_t.qm
 
-/etc/dbus-1/system.d/skype.conf
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*.desktop
