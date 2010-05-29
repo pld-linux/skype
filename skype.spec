@@ -22,6 +22,7 @@ Requires:	alsa-lib >= 1.0.12
 Requires:	iconv
 Requires:	libsigc++ >= 2.0
 Conflicts:	skype-static
+Provides:	skype-program
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
