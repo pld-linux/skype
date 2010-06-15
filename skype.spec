@@ -1,3 +1,4 @@
+%define		pkgname skype
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
@@ -7,7 +8,7 @@ Release:	4
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	http://download.skype.com/linux/%{name}-ubuntu-intrepid_%{version}-1_amd64.deb
+Source0:	http://download.skype.com/linux/%{pkgname}-ubuntu-intrepid_%{version}-1_amd64.deb
 # Source0-md5:	1c4da1a157e95418be10e84900924f92
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
@@ -21,8 +22,8 @@ Requires:	QtNetwork >= 4.2.1
 Requires:	alsa-lib >= 1.0.12
 Requires:	iconv
 Requires:	libsigc++ >= 2.0
-Conflicts:	skype-static
 Provides:	skype-program = %{version}
+Conflicts:	skype-static
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,15 +64,16 @@ mv usr/share/applications/skype.desktop .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/{lang,sounds,avatars},%{_pixmapsdir},%{_desktopdir},/etc/dbus-1/system.d}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{pkgname},%{_datadir}/%{pkgname}/{lang,sounds,avatars},%{_desktopdir},/etc/dbus-1/system.d}
 
-install -p %{name} $RPM_BUILD_ROOT%{_bindir}
-cp -a sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/%{name}/sounds
-cp -a lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/lang
+install -p %{pkgname} $RPM_BUILD_ROOT%{_bindir}
+cp -a sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/sounds
+cp -a lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/lang
+cp -a avatars/*.png $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/avatars
 cp -a skype.conf $RPM_BUILD_ROOT/etc/dbus-1/system.d
-cp -a skype.png $RPM_BUILD_ROOT%{_pixmapsdir}
 cp -a *.desktop $RPM_BUILD_ROOT%{_desktopdir}
-cp -a avatars $RPM_BUILD_ROOT%{_datadir}/%{name}
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+cp -a skype.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,32 +84,32 @@ rm -rf $RPM_BUILD_ROOT
 /etc/dbus-1/system.d/skype.conf
 %attr(755,root,root) %{_bindir}/skype
 
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/sounds
-%{_datadir}/%{name}/avatars
+%dir %{_datadir}/%{pkgname}
+%{_datadir}/%{pkgname}/sounds
+%{_datadir}/%{pkgname}/avatars
 
-%dir %{_datadir}/%{name}/lang
-%lang(bg) %{_datadir}/%{name}/lang/skype_bg.qm
-%lang(de) %{_datadir}/%{name}/lang/skype_de.qm
-%lang(en) %{_datadir}/%{name}/lang/skype_en.qm
-%lang(es) %{_datadir}/%{name}/lang/skype_es.qm
-%lang(et) %{_datadir}/%{name}/lang/skype_et.qm
-%lang(fr) %{_datadir}/%{name}/lang/skype_fr.qm
-%lang(it) %{_datadir}/%{name}/lang/skype_it.qm
-%lang(ja) %{_datadir}/%{name}/lang/skype_ja.qm
-%lang(ko) %{_datadir}/%{name}/lang/skype_ko.qm
-%lang(lt) %{_datadir}/%{name}/lang/skype_lt.qm
-%lang(lv) %{_datadir}/%{name}/lang/skype_lv.qm
-%lang(pl) %{_datadir}/%{name}/lang/skype_pl.qm
-%lang(pt_BR) %{_datadir}/%{name}/lang/skype_pt_br.qm
-%lang(pt) %{_datadir}/%{name}/lang/skype_pt_pt.qm
-%lang(ro) %{_datadir}/%{name}/lang/skype_ro.qm
-%lang(ru) %{_datadir}/%{name}/lang/skype_ru.qm
-%lang(th) %{_datadir}/%{name}/lang/skype_th.qm
-%lang(tr) %{_datadir}/%{name}/lang/skype_tr.qm
-%lang(uk) %{_datadir}/%{name}/lang/skype_uk.qm
-%lang(zh) %{_datadir}/%{name}/lang/skype_zh_s.qm
-%lang(zh_TW) %{_datadir}/%{name}/lang/skype_zh_t.qm
+%dir %{_datadir}/%{pkgname}/lang
+%lang(bg) %{_datadir}/%{pkgname}/lang/skype_bg.qm
+%lang(de) %{_datadir}/%{pkgname}/lang/skype_de.qm
+%lang(en) %{_datadir}/%{pkgname}/lang/skype_en.qm
+%lang(es) %{_datadir}/%{pkgname}/lang/skype_es.qm
+%lang(et) %{_datadir}/%{pkgname}/lang/skype_et.qm
+%lang(fr) %{_datadir}/%{pkgname}/lang/skype_fr.qm
+%lang(it) %{_datadir}/%{pkgname}/lang/skype_it.qm
+%lang(ja) %{_datadir}/%{pkgname}/lang/skype_ja.qm
+%lang(ko) %{_datadir}/%{pkgname}/lang/skype_ko.qm
+%lang(lt) %{_datadir}/%{pkgname}/lang/skype_lt.qm
+%lang(lv) %{_datadir}/%{pkgname}/lang/skype_lv.qm
+%lang(pl) %{_datadir}/%{pkgname}/lang/skype_pl.qm
+%lang(pt) %{_datadir}/%{pkgname}/lang/skype_pt_pt.qm
+%lang(pt_BR) %{_datadir}/%{pkgname}/lang/skype_pt_br.qm
+%lang(ro) %{_datadir}/%{pkgname}/lang/skype_ro.qm
+%lang(ru) %{_datadir}/%{pkgname}/lang/skype_ru.qm
+%lang(th) %{_datadir}/%{pkgname}/lang/skype_th.qm
+%lang(tr) %{_datadir}/%{pkgname}/lang/skype_tr.qm
+%lang(uk) %{_datadir}/%{pkgname}/lang/skype_uk.qm
+%lang(zh) %{_datadir}/%{pkgname}/lang/skype_zh_s.qm
+%lang(zh_TW) %{_datadir}/%{pkgname}/lang/skype_zh_t.qm
 
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*.desktop
