@@ -1,27 +1,31 @@
 %define		pkgname skype
+%define		qtver	4.4.0
+%define		asound	1.0.18
+%define		pulseaudio	0.9.16
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	2.2.0.25
+Version:	2.2.0.35
 Release:	1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{pkgname}-ubuntu_%{version}-1_amd64.deb
-# Source0-md5:	ceec7edb2fdd83f1ba0e0087b1342e84
+# Source0-md5:	0df02583896d01a78817426008cd1d9c
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 BuildRequires:	rpm-utils
 # to force 32bit iconv
 Requires:	%{_libdir}/gconv
-Requires:	QtCore >= 4.2.1
-Requires:	QtDBus >= 4.2.1
-Requires:	QtGui >= 4.2.1
-Requires:	QtNetwork >= 4.2.1
-Requires:	alsa-lib >= 1.0.12
+Requires:	QtCore >= %{qtver}
+Requires:	QtDBus >= %{qtver}
+Requires:	QtGui >= %{qtver}
+Requires:	QtNetwork >= %{qtver}
+Requires:	alsa-lib >= %{asound}
 Requires:	iconv
 Requires:	libsigc++ >= 2.0
+Suggests:	pulseaudio >= %{pulseaudio}
 Provides:	skype-program = %{version}
 Conflicts:	skype-static
 ExclusiveArch:	%{ix86}
