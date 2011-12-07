@@ -14,5 +14,5 @@
  Type=Application
  Encoding=UTF-8
 -Categories=Network;Application;
-+Categories=Qt;Network;InstantMessaging;
++Categories=Qt;Network;InstantMessaging;Telephony;
 +# vi: encoding=utf-8
