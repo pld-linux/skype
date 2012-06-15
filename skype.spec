@@ -5,14 +5,14 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	2.2.0.35
-Release:	2
+Version:	4.0.0.7
+Release:	1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	http://download.skype.com/linux/%{pkgname}-ubuntu_%{version}-1_amd64.deb
-# Source0-md5:	0df02583896d01a78817426008cd1d9c
+Source0:	http://download.skype.com/linux/%{pkgname}-ubuntu_%{version}-1_i386.deb
+# Source0-md5:	ed3a85eb19d95f42923379824115daff
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 BuildRequires:	rpm-utils
@@ -68,16 +68,15 @@ mv usr/share/applications/skype.desktop .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{pkgname},%{_datadir}/%{pkgname}/{lang,sounds,avatars},%{_desktopdir},/etc/dbus-1/system.d}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{pkgname},%{_datadir}/%{pkgname}/{lang,sounds,avatars},%{_desktopdir},%{_pixmapsdir},/etc/dbus-1/system.d}
 
 install -p %{pkgname} $RPM_BUILD_ROOT%{_bindir}
-cp -a sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/sounds
-cp -a lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/lang
-cp -a avatars/*.png $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/avatars
-cp -a skype.conf $RPM_BUILD_ROOT/etc/dbus-1/system.d
-cp -a *.desktop $RPM_BUILD_ROOT%{_desktopdir}
-install -d $RPM_BUILD_ROOT%{_pixmapsdir}
-cp -a skype.png $RPM_BUILD_ROOT%{_pixmapsdir}
+cp -p sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/sounds
+cp -p lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/lang
+cp -p avatars/*.png $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/avatars
+cp -p skype.conf $RPM_BUILD_ROOT/etc/dbus-1/system.d
+cp -p *.desktop $RPM_BUILD_ROOT%{_desktopdir}
+cp -p skype.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -94,6 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_datadir}/%{pkgname}/lang
 %lang(bg) %{_datadir}/%{pkgname}/lang/skype_bg.qm
+%lang(cs) %{_datadir}/%{pkgname}/lang/skype_cs.qm
 %lang(de) %{_datadir}/%{pkgname}/lang/skype_de.qm
 %lang(en) %{_datadir}/%{pkgname}/lang/skype_en.qm
 %lang(es) %{_datadir}/%{pkgname}/lang/skype_es.qm
@@ -104,6 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ko) %{_datadir}/%{pkgname}/lang/skype_ko.qm
 %lang(lt) %{_datadir}/%{pkgname}/lang/skype_lt.qm
 %lang(lv) %{_datadir}/%{pkgname}/lang/skype_lv.qm
+%lang(nb) %{_datadir}/%{pkgname}/lang/skype_no.qm
 %lang(pl) %{_datadir}/%{pkgname}/lang/skype_pl.qm
 %lang(pt) %{_datadir}/%{pkgname}/lang/skype_pt_pt.qm
 %lang(pt_BR) %{_datadir}/%{pkgname}/lang/skype_pt_br.qm
@@ -114,6 +115,5 @@ rm -rf $RPM_BUILD_ROOT
 %lang(uk) %{_datadir}/%{pkgname}/lang/skype_uk.qm
 %lang(zh) %{_datadir}/%{pkgname}/lang/skype_zh_s.qm
 %lang(zh_TW) %{_datadir}/%{pkgname}/lang/skype_zh_t.qm
-
 %{_pixmapsdir}/*.png
 %{_desktopdir}/*.desktop
