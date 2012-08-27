@@ -6,13 +6,14 @@ Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
 Version:	4.0.0.8
-Release:	1
+Release:	2
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	http://download.skype.com/linux/%{pkgname}-ubuntu_%{version}-1_i386.deb
 # Source0-md5:	d5990641c3c6d17b5a656e5b4aa90ad7
+Source1:	%{name}.sh
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
 BuildRequires:	rpm-utils
@@ -68,9 +69,10 @@ mv usr/share/applications/skype.desktop .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{pkgname},%{_datadir}/%{pkgname}/{lang,sounds,avatars},%{_desktopdir},%{_pixmapsdir},/etc/dbus-1/system.d}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_datadir}/%{pkgname},%{_datadir}/%{pkgname}/{lang,sounds,avatars},%{_desktopdir},%{_pixmapsdir},/etc/dbus-1/system.d}
 
-install -p %{pkgname} $RPM_BUILD_ROOT%{_bindir}
+install -p %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/%{name}
+install -p %{pkgname} $RPM_BUILD_ROOT%{_libdir}/%{name}
 cp -p sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/sounds
 cp -p lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/lang
 cp -p avatars/*.png $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/avatars
@@ -86,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE
 /etc/dbus-1/system.d/skype.conf
 %attr(755,root,root) %{_bindir}/skype
+%attr(755,root,root) %{_libdir}/skype
 
 %dir %{_datadir}/%{pkgname}
 %{_datadir}/%{pkgname}/sounds
