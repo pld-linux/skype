@@ -1,18 +1,18 @@
---- skype-2.1.0.47/skype.desktop~	2009-09-02 12:05:51.000000000 +0200
-+++ skype-2.1.0.47/skype.desktop	2009-09-02 12:05:51.000000000 +0200
-@@ -1,9 +1,11 @@
+--- skype-4.1.0.20/skype.desktop	2012-11-27 15:54:58.605967486 +0200
++++ skype-4.1.0.20/skype.desktop	2012-11-27 15:55:50.228363600 +0200
+@@ -1,11 +1,12 @@
  [Desktop Entry]
  Name=Skype
 -Comment=Skype Internet Telephony
 +Comment=p2p VoIP application
 +Comment[pl]=Aplikacja VoIP p2p
- Exec=skype
+ Exec=skype %U
 -Icon=skype.png
--Terminal=0
 +Icon=skype
-+Terminal=false
+ Terminal=false
  Type=Application
  Encoding=UTF-8
 -Categories=Network;Application;
 +Categories=Qt;Network;InstantMessaging;Telephony;
-+# vi: encoding=utf-8
+ MimeType=x-scheme-handler/skype;
+ X-KDE-Protocols=skype

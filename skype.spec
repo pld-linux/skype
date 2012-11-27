@@ -1,18 +1,20 @@
 %define		pkgname skype
-%define		qtver	4.4.0
+%define		qtver	4.7
+%define		dbus	1.0
+%define		bluez	4.0.0
 %define		asound	1.0.18
-%define		pulseaudio	0.9.16
+%define		pulseaudio	1.0
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	4.0.0.8
-Release:	2
+Version:	4.1.0.20
+Release:	1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	http://download.skype.com/linux/%{pkgname}-ubuntu_%{version}-1_i386.deb
-# Source0-md5:	d5990641c3c6d17b5a656e5b4aa90ad7
+Source0:	http://download.skype.com/linux/%{pkgname}-ubuntu-lucid_%{version}-1_i386.deb
+# Source0-md5:	4c8511c6be6c8dcb5b18829cd1ffe190
 Source1:	%{name}.sh
 Patch0:		%{name}-desktop.patch
 URL:		http://www.skype.com/
@@ -24,9 +26,11 @@ Requires:	QtDBus >= %{qtver}
 Requires:	QtGui >= %{qtver}
 Requires:	QtNetwork >= %{qtver}
 Requires:	alsa-lib >= %{asound}
+Requires:	dbus-libs > %{dbus}
 Requires:	iconv
 Requires:	libsigc++ >= 2.0
 Suggests:	pulseaudio >= %{pulseaudio}
+Suggests:	bluez-libs >= %{bluez}
 Provides:	skype-program = %{version}
 Conflicts:	skype-static
 ExclusiveArch:	%{ix86}
@@ -58,6 +62,7 @@ na <http://www.skype.com/go/redistribution/>.
 ar x %{SOURCE0}
 tar xzf data.tar.gz
 mv usr/share/doc/skype/copyright LICENSE
+mv usr/share/doc/skype/* .
 mv usr/share/skype/avatars .
 mv usr/bin/skype .
 mv usr/share/skype/sounds .
@@ -85,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE
+%doc README LICENSE third-party_attributions.txt
 /etc/dbus-1/system.d/skype.conf
 %attr(755,root,root) %{_bindir}/skype
 %attr(755,root,root) %{_libdir}/skype
