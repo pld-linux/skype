@@ -2,7 +2,6 @@
 %define		qtver	4.7
 %define		dbus	1.0
 %define		bluez	4.0.0
-%define		asound	1.0.18
 %define		pulseaudio	1.0
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
@@ -31,6 +30,7 @@ Requires:	dbus-libs > %{dbus}
 Requires:	iconv
 Requires:	libsigc++ >= 2.0
 Requires:	pulseaudio >= %{pulseaudio}
+Requires:	xorg-lib-libXv
 Suggests:	bluez-libs >= %{bluez}
 Provides:	skype-program = %{version}
 Conflicts:	skype-static
