@@ -6,43 +6,37 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	4.3.0.37
+Version:	1.6.2
 Release:	1
+Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	http://download.skype.com/linux/%{pkgname}-ubuntu-lucid_%{version}-1_i386.deb
-# Source0-md5:	6360c21dd8bcf8f33b58f559fcd96af0
+Source0:	https://repo.skype.com/latest/%{pkgname}forlinux-64.deb
+# Source0-md5:	c3baf39fd1ee9ab8fd2f94a618bd6d57
 Source1:	%{name}.sh
 Patch0:		%{name}-desktop.patch
-URL:		http://www.skype.com/
-BuildRequires:	rpm-utils
-# to force 32bit iconv
-Requires:	%{_libdir}/gconv
-Requires:	QtCore >= %{qtver}
-Requires:	QtDBus >= %{qtver}
-Requires:	QtGui >= %{qtver}
-Requires:	QtNetwork >= %{qtver}
-Requires:	QtWebKit >= %{qtver}
-Requires:	QtXml >= %{qtver}
-Requires:	dbus-libs > %{dbus}
-Requires:	iconv
-Requires:	libsigc++ >= 2.0
-Requires:	pulseaudio >= %{pulseaudio}
-Requires:	xorg-lib-libXv
-Suggests:	bluez-libs >= %{bluez}
+URL:		https://www.skype.com/
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Provides:	skype-program = %{version}
 Conflicts:	skype-static
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_enable_debug_packages	0
-# https://developer.skype.com/jira/browse/SCL-569
 %define		no_install_post_strip	1
 
-# So that building package on AC system won't write package name dep that Th system can't understand (libstdc++4)
-%define		_noautoreqdep	libstdc++.so.6
+# internal caps not to require (packaged here)
+%define		int_caps	libffmpeg.so libnode.so
+
+%define		_noautoprovfiles	%{_appdir}
+
+# list of script capabilities (regexps) not to be used in Provides
+%define		_noautoreq  		%{int_caps}
+
+%define		_appdir		%{_libdir}/skypeforlinux
 
 %description
 p2p VoIP application.
@@ -61,68 +55,63 @@ na <http://www.skype.com/go/redistribution/>.
 %prep
 %setup -qcT
 ar x %{SOURCE0}
-tar xzf data.tar.gz
-mv usr/share/doc/skype/copyright LICENSE
-mv usr/share/doc/skype/* .
-mv usr/share/skype/avatars .
-mv usr/bin/skype .
-mv usr/share/skype/sounds .
-mv usr/share/skype/lang .
-mv etc/dbus-1/system.d/skype.conf .
-mv usr/share/pixmaps/skype.png .
-mv usr/share/applications/skype.desktop .
+tar xf data.tar.xz
+mv .%{_docdir}/skypeforlinux doc
+mv .%{_bindir} .
+
+mv .%{_datadir}/skypeforlinux .
+mv skypeforlinux/LICENSE* .
+
 %patch0 -p1
+
+%build
+v=$(cat skypeforlinux/version)
+test "$v" = "v%{version}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_datadir}/%{pkgname},%{_datadir}/%{pkgname}/{lang,sounds,avatars},%{_desktopdir},%{_pixmapsdir},/etc/dbus-1/system.d}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir},%{_appdir}}
 
-install -p %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/%{name}
-install -p %{pkgname} $RPM_BUILD_ROOT%{_libdir}/%{name}
-cp -p sounds/*.wav $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/sounds
-cp -p lang/*.qm $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/lang
-cp -p avatars/*.png $RPM_BUILD_ROOT%{_datadir}/%{pkgname}/avatars
-cp -p skype.conf $RPM_BUILD_ROOT/etc/dbus-1/system.d
-cp -p *.desktop $RPM_BUILD_ROOT%{_desktopdir}
-cp -p skype.png $RPM_BUILD_ROOT%{_pixmapsdir}
+cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
+ln -s skypeforlinux $RPM_BUILD_ROOT%{_bindir}/%{name}
+cp -a skypeforlinux/* $RPM_BUILD_ROOT%{_appdir}
+cp -a usr/share/* $RPM_BUILD_ROOT%{_datadir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README LICENSE third-party_attributions.txt
-/etc/dbus-1/system.d/skype.conf
+%doc doc/* LICENSE*
 %attr(755,root,root) %{_bindir}/skype
-%attr(755,root,root) %{_libdir}/skype
+%attr(755,root,root) %{_bindir}/skypeforlinux
+%{_desktopdir}/skypeforlinux.desktop
+%{_pixmapsdir}/skypeforlinux.png
+%{_iconsdir}/hicolor/*/apps/skypeforlinux.png
 
-%dir %{_datadir}/%{pkgname}
-%{_datadir}/%{pkgname}/sounds
-%{_datadir}/%{pkgname}/avatars
+%dir %{_appdir}
+%attr(755,root,root) %{_appdir}/libffmpeg.so
+%attr(755,root,root) %{_appdir}/libnode.so
+%attr(755,root,root) %{_appdir}/skypeforlinux
+%{_appdir}/*.pak
+%{_appdir}/icudtl.dat
+%{_appdir}/natives_blob.bin
+%{_appdir}/snapshot_blob.bin
+%{_appdir}/version
 
-%dir %{_datadir}/%{pkgname}/lang
-%lang(bg) %{_datadir}/%{pkgname}/lang/skype_bg.qm
-%lang(cs) %{_datadir}/%{pkgname}/lang/skype_cs.qm
-%lang(de) %{_datadir}/%{pkgname}/lang/skype_de.qm
-%lang(en) %{_datadir}/%{pkgname}/lang/skype_en.qm
-%lang(es) %{_datadir}/%{pkgname}/lang/skype_es.qm
-%lang(et) %{_datadir}/%{pkgname}/lang/skype_et.qm
-%lang(fr) %{_datadir}/%{pkgname}/lang/skype_fr.qm
-%lang(it) %{_datadir}/%{pkgname}/lang/skype_it.qm
-%lang(ja) %{_datadir}/%{pkgname}/lang/skype_ja.qm
-%lang(ko) %{_datadir}/%{pkgname}/lang/skype_ko.qm
-%lang(lt) %{_datadir}/%{pkgname}/lang/skype_lt.qm
-%lang(lv) %{_datadir}/%{pkgname}/lang/skype_lv.qm
-%lang(nb) %{_datadir}/%{pkgname}/lang/skype_no.qm
-%lang(pl) %{_datadir}/%{pkgname}/lang/skype_pl.qm
-%lang(pt) %{_datadir}/%{pkgname}/lang/skype_pt_pt.qm
-%lang(pt_BR) %{_datadir}/%{pkgname}/lang/skype_pt_br.qm
-%lang(ro) %{_datadir}/%{pkgname}/lang/skype_ro.qm
-%lang(ru) %{_datadir}/%{pkgname}/lang/skype_ru.qm
-%lang(th) %{_datadir}/%{pkgname}/lang/skype_th.qm
-%lang(tr) %{_datadir}/%{pkgname}/lang/skype_tr.qm
-%lang(uk) %{_datadir}/%{pkgname}/lang/skype_uk.qm
-%lang(zh) %{_datadir}/%{pkgname}/lang/skype_zh_s.qm
-%lang(zh_TW) %{_datadir}/%{pkgname}/lang/skype_zh_t.qm
-%{_pixmapsdir}/*.png
-%{_desktopdir}/*.desktop
+%dir %{_appdir}/resources
+%{_appdir}/resources/app.asar
+%{_appdir}/resources/default_app.asar
+%{_appdir}/resources/electron.asar
+%dir %{_appdir}/resources/app.asar.unpacked
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding
+%attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release/keytar.node
+%attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding/node_sqlite3.node
+
+%{_appdir}/locales
