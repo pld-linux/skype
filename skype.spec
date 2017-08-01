@@ -6,7 +6,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	1.6.2
+Version:	1.7.4
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -14,8 +14,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/latest/%{pkgname}forlinux-64.deb
-# Source0-md5:	c3baf39fd1ee9ab8fd2f94a618bd6d57
-Source1:	%{name}.sh
+# Source0-md5:	82dd3d59fde84c4e5b62d69208d8879c
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -34,7 +33,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_noautoprovfiles	%{_appdir}
 
 # list of script capabilities (regexps) not to be used in Provides
-%define		_noautoreq  		%{int_caps}
+%define		_noautoreq		%{int_caps}
 
 %define		_appdir		%{_libdir}/skypeforlinux
 
@@ -76,6 +75,8 @@ cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
 ln -s skypeforlinux $RPM_BUILD_ROOT%{_bindir}/%{name}
 cp -a skypeforlinux/* $RPM_BUILD_ROOT%{_appdir}
 cp -a usr/share/* $RPM_BUILD_ROOT%{_datadir}
+
+sed -i -e 's|/share/|/%{_lib}/|g' $RPM_BUILD_ROOT%{_bindir}/skypeforlinux
 
 %clean
 rm -rf $RPM_BUILD_ROOT
