@@ -1,3 +1,6 @@
+# Conditional build:
+%bcond_with	compat_hack	# compatibility hack to make old skype work after end of life
+
 %define		pkgname skype
 %define		qtver	4.7
 %define		dbus	1.0
@@ -72,6 +75,11 @@ mv etc/dbus-1/system.d/skype.conf .
 mv usr/share/pixmaps/skype.png .
 mv usr/share/applications/skype.desktop .
 %patch0 -p1
+
+%if %{with compat_hack}
+%define		escaped_ver	%(echo %{version}|sed 's/\\./\\\\./g')
+%{__sed} -i -e 's/%{escaped_ver}/8.3.0.37/' %{pkgname}
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
