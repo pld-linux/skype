@@ -6,7 +6,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	1.7.4
+Version:	1.8.1
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -14,7 +14,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/latest/%{pkgname}forlinux-64.deb
-# Source0-md5:	82dd3d59fde84c4e5b62d69208d8879c
+# Source0-md5:	4359322cb2710c4eb748b173c7204624
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -104,15 +104,33 @@ rm -rf $RPM_BUILD_ROOT
 %{_appdir}/resources/app.asar
 %{_appdir}/resources/default_app.asar
 %{_appdir}/resources/electron.asar
+
 %dir %{_appdir}/resources/app.asar.unpacked
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release
+%{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release/cld.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release
+%{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release/spellchecker.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release
+%{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release/keyboard-layout-manager.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release
+%attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release/keytar.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/sharing-indicator.node
+%{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/slimcore.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding
-%attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release/keytar.node
 %attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding/node_sqlite3.node
 
 %{_appdir}/locales
