@@ -1,20 +1,16 @@
-%define		pkgname skype
-%define		qtver	4.7
-%define		dbus	1.0
-%define		bluez	4.0.0
-%define		pulseaudio	1.0
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	1.8.1
-Release:	1
+%define	beta	beta.7
+Version:	2.0.0
+Release:	0.%{beta}.1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	https://repo.skype.com/latest/%{pkgname}forlinux-64.deb
-# Source0-md5:	4359322cb2710c4eb748b173c7204624
+Source0:	https://repo.skype.com/latest/%{name}forlinux-64.deb
+# Source0-md5:	1dd890029da7c68e9af059cdb8cec033
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -65,7 +61,7 @@ mv skypeforlinux/LICENSE* .
 
 %build
 v=$(cat skypeforlinux/version)
-test "$v" = "v%{version}"
+test "$v" = "v%{version}-%{beta}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -112,18 +108,32 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release
 %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release/cld.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release/obj.target
+%{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release/obj.target/cld.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release
+%{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release/electron-ssid.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release/obj.target
+%{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release/obj.target/electron-ssid.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release
 %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release/spellchecker.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release/obj.target
+%{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release/obj.target/spellchecker.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release
 %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release/keyboard-layout-manager.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release/obj.target
+%{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release/obj.target/keyboard-layout-manager.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release
 %attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release/keytar.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release/obj.target
+%{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release/obj.target/keytar.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/sharing-indicator.node
@@ -132,5 +142,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding
 %attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding/node_sqlite3.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/build
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/build/Release
+%{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/build/Release/node_sqlite3.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/build/Release/obj.target
+%{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/build/Release/obj.target/node_sqlite3.node
 
 %{_appdir}/locales
