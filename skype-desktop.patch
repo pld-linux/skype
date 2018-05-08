@@ -1,15 +1,8 @@
 --- skype-1.6.2/usr/share/applications/skypeforlinux.desktop~	2017-05-29 16:44:16.000000000 +0300
 +++ skype-1.6.2/usr/share/applications/skypeforlinux.desktop	2017-06-09 16:19:24.351182157 +0300
-@@ -13,13 +13,14 @@
- Name[uk]=Skype для Linux Beta
- Name[zh_CN]=Skype for Linux Beta
- Comment=Skype Internet Telephony
-+Comment[pl]=Aplikacja VoIP p2p
- Exec=/usr/bin/skypeforlinux %U
- Icon=skypeforlinux
- Terminal=false
- Type=Application
+@@ -13,7 +13,7 @@
  StartupNotify=true
+ StartupWMClass=Skype
  Encoding=UTF-8
 -Categories=Network;Application;
 +Categories=Network;InstantMessaging;Telephony;
