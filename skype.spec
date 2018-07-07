@@ -10,7 +10,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/latest/%{name}forlinux-64.deb
-# Source0-md5:	5cd5b1ced27bc3efdacc283bba9720a0
+# Source0-md5:	bc45e20808931de5bbcb4c9c23558cc6
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
