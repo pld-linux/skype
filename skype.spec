@@ -1,9 +1,8 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-%define	beta	beta.7
-Version:	2.0.0
-Release:	0.%{beta}.2
+Version:	8.25.0.5
+Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
 # distributing on CD-ROM and similar media requires approval
@@ -60,8 +59,8 @@ mv skypeforlinux/LICENSE* .
 %patch0 -p1
 
 %build
-v=$(cat skypeforlinux/version)
-test "$v" = "v%{version}-%{beta}"
+v=$(strings skypeforlinux/resources/app.asar | grep -C 3 '"productName": "Skype",' | grep -m 1 '"version":' | sed 's/.*: "\([0-9.]\+\)".*/\1/')
+test "$v" = "%{version}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
