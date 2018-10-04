@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.27.0.85
+Version:	8.31.0.92
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/latest/%{name}forlinux-64.deb
-# Source0-md5:	f5f45ebf52426afa73b8841c516a1801
+# Source0-md5:	eccf7a85658eb815a1f8e7f4f0dbd011
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -102,6 +102,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_appdir}/resources/app.asar.unpacked
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build/Release
+%{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build/Release/desktopIdle.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build
