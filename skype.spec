@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.34.0.78
+Version:	8.47.0.59
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/latest/%{name}forlinux-64.deb
-# Source0-md5:	4ffdb0258c2dd4eff53d6f317bd69932
+# Source0-md5:	e9e28b5c0289f835f0b172b03ad63c28
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -92,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_appdir}/*.pak
 %{_appdir}/icudtl.dat
 %{_appdir}/natives_blob.bin
-%{_appdir}/snapshot_blob.bin
+%{_appdir}/v8_context_snapshot.bin
 %{_appdir}/version
 
 %dir %{_appdir}/resources
