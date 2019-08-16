@@ -16,6 +16,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
+Requires:	hicolor-icon-theme
 Provides:	skype-program = %{version}
 Conflicts:	skype-static
 ExclusiveArch:	%{x8664}
