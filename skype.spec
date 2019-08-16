@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.47.0.59
+Version:	8.51.0.72
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/latest/%{name}forlinux-64.deb
-# Source0-md5:	e9e28b5c0289f835f0b172b03ad63c28
+# Source0-md5:	5eb3b9cdb9d511e38a3bd83ae74bcefd
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -23,7 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		no_install_post_strip	1
 
 # internal caps not to require (packaged here)
-%define		int_caps	libffmpeg.so libnode.so
+%define		int_caps	libEGL.so libGLESv2.so libffmpeg.so
 
 %define		_noautoprovfiles	%{_appdir}
 
@@ -86,12 +86,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/skypeforlinux.png
 
 %dir %{_appdir}
+%attr(755,root,root) %{_appdir}/chrome-sandbox
+%attr(755,root,root) %{_appdir}/libEGL.so
+%attr(755,root,root) %{_appdir}/libGLESv2.so
 %attr(755,root,root) %{_appdir}/libffmpeg.so
-%attr(755,root,root) %{_appdir}/libnode.so
 %attr(755,root,root) %{_appdir}/skypeforlinux
+%dir %{_appdir}/swiftshader
+%attr(755,root,root) %{_appdir}/swiftshader/libEGL.so
+%attr(755,root,root) %{_appdir}/swiftshader/libGLESv2.so
 %{_appdir}/*.pak
 %{_appdir}/icudtl.dat
 %{_appdir}/natives_blob.bin
+%{_appdir}/snapshot_blob.bin
 %{_appdir}/v8_context_snapshot.bin
 %{_appdir}/version
 
@@ -102,23 +108,23 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_appdir}/resources/app.asar.unpacked
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/cld
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/cld/build
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/cld/build/Release
+%{_appdir}/resources/app.asar.unpacked/node_modules/cld/build/Release/cld.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build/Release
 %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build/Release/desktopIdle.node
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release
-%{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release/cld.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release
 %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release/electron-ssid.node
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release
-%{_appdir}/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release/spellchecker.node
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg/spellchecker
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg/spellchecker/build
+%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg/spellchecker/build/Release
+%{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg/spellchecker/build/Release/spellchecker.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release
