@@ -14,6 +14,7 @@ Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Provides:	skype-program = %{version}
 Conflicts:	skype-static
@@ -79,9 +80,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_icon_cache hicolor
+%update_desktop_database_post
 
 %postun
 %update_icon_cache hicolor
+%update_desktop_database_postun
 
 %files
 %defattr(644,root,root,755)
