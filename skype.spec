@@ -14,6 +14,7 @@ Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires(post,postun):	gtk-update-icon-cache
 Provides:	skype-program = %{version}
 Conflicts:	skype-static
 ExclusiveArch:	%{x8664}
@@ -75,6 +76,12 @@ sed -i -e 's|/share/|/%{_lib}/|g' $RPM_BUILD_ROOT%{_bindir}/skypeforlinux
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_icon_cache hicolor
+
+%postun
+%update_icon_cache hicolor
 
 %files
 %defattr(644,root,root,755)
