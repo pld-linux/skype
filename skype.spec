@@ -63,7 +63,8 @@ mv skypeforlinux/LICENSE* .
 
 %build
 v=$(strings skypeforlinux/resources/app.asar | grep -C 3 '"productName": "Skype",' | grep -m 1 '"version":' | sed 's/.*: "\([0-9.]\+\)".*/\1/')
-test "$v" = "%{version}"
+c=$(strings skypeforlinux/resources/app.asar | grep '"buildChannel":' | sed 's/.*: "\([^"]\+\)".*/\1/')
+test "$v" = "%{version}" -a "$c" = "production"
 
 %install
 rm -rf $RPM_BUILD_ROOT
