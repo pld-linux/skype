@@ -8,7 +8,7 @@ Epoch:		1
 # distributing on CD-ROM and similar media requires approval
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
-Source0:	https://repo.skype.com/latest/%{name}forlinux-64.deb
+Source0:	https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_%{version}_amd64.deb
 # Source0-md5:	5eb3b9cdb9d511e38a3bd83ae74bcefd
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
