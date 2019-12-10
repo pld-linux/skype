@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.54.0.91
+Version:	8.55.0.123
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_%{version}_amd64.deb
-# Source0-md5:	e4298ffbb7532251bbdcbca0deac6513
+# Source0-md5:	f8e8a5120f356d3430e05918ac7f14bb
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -106,6 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_appdir}/swiftshader
 %attr(755,root,root) %{_appdir}/swiftshader/libEGL.so
 %attr(755,root,root) %{_appdir}/swiftshader/libGLESv2.so
+%attr(755,root,root) %{_appdir}/swiftshader/libvk_swiftshader.so
 %{_appdir}/*.pak
 %{_appdir}/icudtl.dat
 %{_appdir}/natives_blob.bin
@@ -116,14 +117,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_appdir}/resources
 %{_appdir}/resources/app.asar
 %{_appdir}/resources/default_app.asar
-%{_appdir}/resources/electron.asar
 
 %dir %{_appdir}/resources/app.asar.unpacked
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/cld
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/cld/build
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/cld/build/Release
-%{_appdir}/resources/app.asar.unpacked/node_modules/cld/build/Release/cld.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build/Release
@@ -132,15 +128,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release
 %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release/electron-ssid.node
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg/spellchecker
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg/spellchecker/build
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg/spellchecker/build/Release
-%{_appdir}/resources/app.asar.unpacked/node_modules/@felixrieseberg/spellchecker/build/Release/spellchecker.node
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release
-%{_appdir}/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release/keyboard-layout-manager.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release
@@ -149,8 +136,4 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/sharing-indicator.node
 %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/slimcore.node
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding
-%attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding/node_sqlite3.node
 %{_appdir}/locales
