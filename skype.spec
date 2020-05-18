@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.59.0.77
+Version:	8.60.0.76
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_%{version}_amd64.deb
-# Source0-md5:	b9526289c0082b750d8cb505b63d915d
+# Source0-md5:	ac345dd44c9dab0b7f940b109a9ff5db
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -122,10 +122,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_appdir}/resources/app.asar.unpacked
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build/Release
-%{_appdir}/resources/app.asar.unpacked/node_modules/desktop-idle/build/Release/desktopIdle.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release
