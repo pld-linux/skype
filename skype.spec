@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.60.0.76
+Version:	8.61.0.77
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_%{version}_amd64.deb
-# Source0-md5:	ac345dd44c9dab0b7f940b109a9ff5db
+# Source0-md5:	cdcff68b9d1854d5802f8a1bfbe5aeb6
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -136,6 +136,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release/keytar.node
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore
 %dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/sharing-indicator.node
+%{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/platform.node
+%{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/sharing-indicator.node
 %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/slimcore.node
+%{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/trouter-client.node
 %{_appdir}/locales
