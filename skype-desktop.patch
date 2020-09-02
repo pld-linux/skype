@@ -6,6 +6,6 @@
  Encoding=UTF-8
 -Categories=Network;Application;
 +Categories=Network;InstantMessaging;Telephony;
- MimeType=x-scheme-handler/skype;
+ MimeType=x-scheme-handler/skype;x-scheme-handler/tel;x-scheme-handler/callto;
  X-KDE-Protocols=skype
  Actions=QuitSkype;

@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.63.0.76
+Version:	8.64.0.67
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_%{version}_amd64.deb
-# Source0-md5:	1a0d16cc5524c7843b288213e08d058a
+# Source0-md5:	b09e051fee1ebebdafdc93b61023ce8b
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -101,17 +101,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_appdir}
 %attr(755,root,root) %{_appdir}/chrome-sandbox
+%attr(755,root,root) %{_appdir}/crashpad_handler
 %attr(755,root,root) %{_appdir}/libEGL.so
 %attr(755,root,root) %{_appdir}/libGLESv2.so
 %attr(755,root,root) %{_appdir}/libffmpeg.so
 %attr(755,root,root) %{_appdir}/skypeforlinux
+%attr(755,root,root) %{_appdir}/libvk_swiftshader.so
+%{_appdir}/vk_swiftshader_icd.json
 %dir %{_appdir}/swiftshader
 %attr(755,root,root) %{_appdir}/swiftshader/libEGL.so
 %attr(755,root,root) %{_appdir}/swiftshader/libGLESv2.so
-%attr(755,root,root) %{_appdir}/swiftshader/libvk_swiftshader.so
 %{_appdir}/*.pak
 %{_appdir}/icudtl.dat
-%{_appdir}/natives_blob.bin
 %{_appdir}/snapshot_blob.bin
 %{_appdir}/v8_context_snapshot.bin
 %{_appdir}/version
@@ -121,23 +122,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_appdir}/resources/default_app.asar
 
 %dir %{_appdir}/resources/app.asar.unpacked
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release
-%{_appdir}/resources/app.asar.unpacked/node_modules/electron-ssid/build/Release/electron-ssid.node
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-utility
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-utility/build
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/electron-utility/build/Release
-%{_appdir}/resources/app.asar.unpacked/node_modules/electron-utility/build/Release/electron_utility.node
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release
-%attr(755,root,root) %{_appdir}/resources/app.asar.unpacked/node_modules/keytar/build/Release/keytar.node
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore
-%dir %{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin
-%{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/platform.node
-%{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/sharing-indicator.node
-%{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/slimcore.node
-%{_appdir}/resources/app.asar.unpacked/node_modules/slimcore/bin/trouter-client.node
+%dir %{_appdir}/resources/app.asar.unpacked/modules
+%{_appdir}/resources/app.asar.unpacked/modules/electron-ssid.node
+%{_appdir}/resources/app.asar.unpacked/modules/electron_utility.node
+%{_appdir}/resources/app.asar.unpacked/modules/keytar.node
+%{_appdir}/resources/app.asar.unpacked/modules/platform.node
+%{_appdir}/resources/app.asar.unpacked/modules/sharing-indicator.node
+%{_appdir}/resources/app.asar.unpacked/modules/slimcore.node
+%{_appdir}/resources/app.asar.unpacked/modules/trouter-client.node
 %{_appdir}/locales
