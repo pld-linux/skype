@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.65.0.78
+Version:	8.66.0.74
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_%{version}_amd64.deb
-# Source0-md5:	3fcbf437b0b5e0b76c2a877f86afea00
+# Source0-md5:	adff9772eece9188584f9312097d941d
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -123,7 +123,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir %{_appdir}/resources/app.asar.unpacked
 %dir %{_appdir}/resources/app.asar.unpacked/modules
-%{_appdir}/resources/app.asar.unpacked/modules/electron-ssid.node
 %{_appdir}/resources/app.asar.unpacked/modules/electron_utility.node
 %{_appdir}/resources/app.asar.unpacked/modules/keytar.node
 %{_appdir}/resources/app.asar.unpacked/modules/platform.node
