@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.73.0.92
+Version:	8.73.0.129
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_%{version}_amd64.deb
-# Source0-md5:	67e6a0ac567214e85f70db83459aa0df
+# Source0-md5:	990278a15a1545a2066b0f518a45d669
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -103,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_appdir}/libEGL.so
 %attr(755,root,root) %{_appdir}/libGLESv2.so
 %attr(755,root,root) %{_appdir}/libffmpeg.so
-%attr(755,root,root) %{_appdir}/libvulkan.so
+%attr(755,root,root) %{_appdir}/libvulkan.so.1
 %attr(755,root,root) %{_appdir}/skypeforlinux
 %attr(755,root,root) %{_appdir}/libvk_swiftshader.so
 %{_appdir}/vk_swiftshader_icd.json
