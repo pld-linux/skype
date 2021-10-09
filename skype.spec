@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.75.0.140
+Version:	8.77.0.90
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_%{version}_amd64.deb
-# Source0-md5:	1d270011c74452f455927d898551fe02
+# Source0-md5:	3de316bb1af46c5018b18ceffe0f6e45
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -76,6 +76,8 @@ cp -a usr/share/* $RPM_BUILD_ROOT%{_datadir}
 
 sed -i -e 's|/share/|/%{_lib}/|g' $RPM_BUILD_ROOT%{_bindir}/skypeforlinux
 
+%{__rm} -r $RPM_BUILD_ROOT%{_appdir}/resources/app.asar.unpacked/images/tray/{mac,win}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -121,6 +123,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_appdir}/resources/default_app.asar
 
 %dir %{_appdir}/resources/app.asar.unpacked
+%dir %{_appdir}/resources/app.asar.unpacked/images
+%dir %{_appdir}/resources/app.asar.unpacked/images/tray
+%{_appdir}/resources/app.asar.unpacked/images/tray/linux
+%{_appdir}/resources/app.asar.unpacked/images/tray/presence
 %dir %{_appdir}/resources/app.asar.unpacked/modules
 %{_appdir}/resources/app.asar.unpacked/modules/electron_utility.node
 %{_appdir}/resources/app.asar.unpacked/modules/keytar.node
