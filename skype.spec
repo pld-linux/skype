@@ -1,7 +1,7 @@
 Summary:	p2p VoIP application
 Summary(pl.UTF-8):	Aplikacja VoIP p2p
 Name:		skype
-Version:	8.77.0.97
+Version:	8.79.76.22
 Release:	1
 Epoch:		1
 # http://www.skype.com/company/legal/promote/distributionterms.html
@@ -9,7 +9,7 @@ Epoch:		1
 License:	Commercial, redistributable (see LICENSE)
 Group:		Applications/Communications
 Source0:	https://repo.skype.com/deb/pool/main/s/skypeforlinux/skypeforlinux_%{version}_amd64.deb
-# Source0-md5:	def9ff93650e7b334d4de24d0d74df68
+# Source0-md5:	2034b2ab9a3d7011183fb6415f86e8f6
 Patch0:		%{name}-desktop.patch
 URL:		https://www.skype.com/
 BuildRequires:	tar >= 1:1.22
@@ -63,7 +63,7 @@ mv skypeforlinux/LICENSE* .
 %build
 v=$(strings skypeforlinux/resources/app.asar | grep -C 3 '"productName": "Skype",' | grep -m 1 '"version":' | sed 's/.*: "\([0-9.]\+\)".*/\1/')
 c=$(strings skypeforlinux/resources/app.asar | grep '"buildChannel":' | sed 's/.*: "\([^"]\+\)".*/\1/')
-test "$v" = "%{version}" -a "$c" = "production"
+test "$v" = "%{version}" -a "$c" = "preview"
 
 %install
 rm -rf $RPM_BUILD_ROOT
